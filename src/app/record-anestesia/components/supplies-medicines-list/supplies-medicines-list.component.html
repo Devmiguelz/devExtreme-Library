@@ -1,0 +1,100 @@
+<div class="row">
+    <div class="col-md-12 text-center mt-1">
+        <h4><strong>Insumos</strong></h4>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <dx-data-grid id="gridInsumos" [dataSource]="insumoList" [showBorders]="true" [showRowLines]="true">
+
+            <dxi-column caption="Nombre" cellTemplate="nombreData"></dxi-column>
+            <dxi-column caption="Cantidad" cellTemplate="cantidadData" [width]="100"></dxi-column>
+            <dxi-column caption="Unidad Medida" cellTemplate="unidadData" [width]="150"></dxi-column>
+            <dxi-column caption="Validación" cellTemplate="validacionData" [width]="100"></dxi-column>
+            <dxi-column caption="Observación" cellTemplate="observacionData"></dxi-column>
+
+            <div *dxTemplate="let data of 'nombreData'">
+                <div class="text-center">
+                    {{data.key.nombre}}
+                </div>
+            </div>
+
+            <div *dxTemplate="let data of 'cantidadData'">
+                <div class="text-center">
+                    {{data.key.cantidad}}
+                </div>
+            </div>
+
+            <div *dxTemplate="let data of 'unidadData'">
+                <div class="text-center">
+                    {{data.key.unidadMedida}}
+                </div>
+            </div>
+
+            <div *dxTemplate="let data of 'validacionData'">
+                <div class="text-center">
+                    <dx-check-box [(value)]="data.key.validacion"
+                        (onValueChanged)="CheckValidacionChange($event.value, data)" class="checkBox">
+                    </dx-check-box>
+                </div>
+            </div>
+
+            <div *dxTemplate="let data of 'observacionData'">
+                <dx-text-box [(value)]="data.key.observaciones" [disabled]="data.key.validacion" 
+                class="fullWidth" (focusStateEnabled)="false">
+                </dx-text-box>
+            </div>
+
+        </dx-data-grid>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12 text-center mt-1">
+        <h4><strong>Medicamentos</strong></h4>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <dx-data-grid id="gridMedicamentos" [dataSource]="medicamentosList" [showBorders]="true" [showRowLines]="true">
+
+            <dxi-column caption="Nombre" cellTemplate="nombreData"></dxi-column>
+            <dxi-column caption="Cantidad" cellTemplate="cantidadData" [width]="100"></dxi-column>
+            <dxi-column caption="Unidad Medida" cellTemplate="unidadData" [width]="150"></dxi-column>
+            <dxi-column caption="Validación" cellTemplate="validacionData" [width]="100"></dxi-column>
+            <dxi-column caption="Observación" cellTemplate="observacionData"></dxi-column>
+
+            <div *dxTemplate="let data of 'nombreData'">
+                <div class="text-center">
+                    {{data.key.nombre}}
+                </div>
+            </div>
+
+            <div *dxTemplate="let data of 'cantidadData'">
+                <div class="text-center">
+                    {{data.key.cantidad}}
+                </div>
+            </div>
+
+            <div *dxTemplate="let data of 'unidadData'">
+                <div class="text-center">
+                    {{data.key.unidadMedida}}
+                </div>
+            </div>
+
+            <div *dxTemplate="let data of 'validacionData'">
+                <div class="text-center">
+                    <dx-check-box [(value)]="data.key.validacion"
+                        (onValueChanged)="CheckValidacionChange($event.value, data)" class="checkBox">
+                    </dx-check-box>
+                </div>
+            </div>
+
+            <div *dxTemplate="let data of 'observacionData'">
+                <dx-text-box [(value)]="data.key.observaciones" [disabled]="data.key.validacion" 
+                class="fullWidth" (focusStateEnabled)="false">
+                </dx-text-box>
+            </div>
+
+        </dx-data-grid>
+    </div>
+</div>

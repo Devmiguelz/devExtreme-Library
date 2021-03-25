@@ -1,0 +1,12 @@
+<div class="dx-field">
+    <div class="dx-field-value">
+        <dx-radio-group
+            [items]="labelsRadios"
+            (onValueChanged)="onValueChanged($event.value)">
+        </dx-radio-group>
+    </div>
+</div>
+<div>
+    <app-supplies-medicines-add *ngIf="radioSelected && add" [radioselected]="radioSelected"></app-supplies-medicines-add>
+    <app-supplies-medicines-list *ngIf="radioSelected && !add" [radioselected]="radioSelected" ></app-supplies-medicines-list>
+</div>

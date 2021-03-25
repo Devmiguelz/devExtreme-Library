@@ -1,0 +1,110 @@
+<div class="row">
+    <div class="col-md-12 text-center">
+        <h4><strong>Insumos</strong></h4>
+        <button (click)="AddListInsumos()" class="btn btn-primary">+</button>        
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <dx-data-grid id="gridInsumos" [dataSource]="insumoList" [showBorders]="true" [showRowLines]="true">
+
+            <dxi-column caption="Nombre" cellTemplate="nombreData"></dxi-column>
+            <dxi-column caption="Cantidad" cellTemplate="cantidadData" [width]="100"></dxi-column>
+            <dxi-column caption="Unidad Medida" cellTemplate="unidadData" [width]="150"></dxi-column>
+            <dxi-column caption="Observación" cellTemplate="observacionData"></dxi-column>
+
+            
+            <div *dxTemplate="let data of 'nombreData'">
+                <dx-select-box [dataSource]="dataMedicamentoSelect"
+                        displayExpr="medicamento"
+                        placeholder="Escriba al menos 3 letras para filtrar..."
+                        [(value)]="data.medicamentoId"
+                        valueExpr="id"
+                        searchMode="contains"
+                        searchExpr="medicamento"
+                        [searchTimeout]="200"
+                        [minSearchLength]="3"
+                        [showClearButton]="true"
+                        [searchEnabled]="true"
+                        (onSelectionChanged)="SelectMedicamentoChange($event)">
+
+                        <div *dxTemplate="let data of 'item'">
+                            <div style="display: inline-block">{{ data.medicamento }}</div>
+                        </div>
+
+                </dx-select-box>
+            </div>
+
+            <div *dxTemplate="let data of 'cantidadData'">
+                <div class="text-center">
+                    <dx-number-box [(value)]="data.key.cantidad" class="fullWidth" 
+                        (focusStateEnabled)="false">
+                    </dx-number-box>
+                </div>
+            </div>
+
+            <div *dxTemplate="let data of 'unidadData'">
+                <dx-select-box [dataSource]="dataUnidadMedidaSelect"
+                        displayExpr="unidadMedida"
+                        placeholder="Seleccione..."
+                        [(value)]="data.unidadMedidaId"
+                        valueExpr="id"
+                        (onSelectionChanged)="SelectUnidadMedidaChange($event, data)">
+                        <div *dxTemplate="let data of 'item'">
+                            <div style="display: inline-block">{{ data.unidadMedida }}</div>
+                        </div>
+                </dx-select-box>
+            </div>
+
+            <div *dxTemplate="let data of 'observacionData'">
+                <dx-text-box [(value)]="data.key.observaciones" class="fullWidth"
+                    (focusStateEnabled)="false">
+                </dx-text-box>
+            </div>
+
+        </dx-data-grid>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12 text-center">
+        <h4><strong>Medicamentos</strong></h4>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <dx-data-grid id="gridInsumos" [dataSource]="medicamentosList" [showBorders]="true" [showRowLines]="true">
+
+            <dxi-column caption="Nombre" cellTemplate="nombreData"></dxi-column>
+            <dxi-column caption="Cantidad" cellTemplate="cantidadData" [width]="100"></dxi-column>
+            <dxi-column caption="Unidad Medida" cellTemplate="unidadData" [width]="150"></dxi-column>
+            <dxi-column caption="Observación" cellTemplate="observacionData"></dxi-column>
+
+            <div *dxTemplate="let data of 'nombreData'">
+                <dx-text-box [(value)]="data.key.medicamento" class="fullWidth"
+                    (focusStateEnabled)="false">
+                </dx-text-box>
+            </div>
+
+            <div *dxTemplate="let data of 'cantidadData'">
+                <div class="text-center">
+                    <dx-number-box [(value)]="data.key.cantidad" class="fullWidth" 
+                        (focusStateEnabled)="false">
+                    </dx-number-box>
+                </div>
+            </div>
+
+            <div *dxTemplate="let data of 'unidadData'">
+                <div class="text-center">
+                    {{data.key.unidadMedida}}
+                </div>
+            </div>
+
+            <div *dxTemplate="let data of 'observacionData'">
+                <dx-text-box [(value)]="data.key.observaciones" class="fullWidth"
+                    (focusStateEnabled)="false">
+                </dx-text-box>
+            </div>
+
+        </dx-data-grid>
+    </div>
+</div>

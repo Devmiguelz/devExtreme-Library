@@ -1,0 +1,25 @@
+<dx-tab-panel
+    #tabPanel
+    [height]="600"
+    [dataSource]="tabPanels"
+    [selectedIndex]="0"
+    [loop]="false"
+    [animationEnabled]="true"
+    [swipeEnabled]="true">
+    
+    <div *dxTemplate="let panel of 'title'">
+        <span>{{ panel.PanelName }}</span>
+    </div>
+    <div *dxTemplate="let panel of 'item'">
+        <div class="tabpanel-item">
+            <span [ngSwitch]="panel.ID">
+            <p *ngSwitchCase="1">
+                <app-anesthesia-sheet></app-anesthesia-sheet>
+            </p>
+            <p *ngSwitchCase="2">
+                <app-anesthesia-basket></app-anesthesia-basket>
+            </p>
+            </span>
+        </div>
+    </div>
+</dx-tab-panel>

@@ -1,0 +1,37 @@
+<div class="row">
+    <div class="col-md-12">
+        <label>Select de Busqueda Default</label>
+        <dx-select-box [dataSource]="proceduresList"
+                        displayExpr="DescripcionTriage"
+                        placeholder="Escriba al menos 3 letras para filtrar..."
+                        valueExpr="ID"
+                        searchMode="contains"
+                        searchExpr="DescripcionTriage"
+                        [searchTimeout]="200"
+                        [minSearchLength]="3"
+                        [showClearButton]="true"
+                        [searchEnabled]="true"
+                        (onSelectionChanged)="addCustomItem($event)">
+        </dx-select-box>
+    </div>
+    <div class="col-md-12">
+        <label>Select de Busqueda Custom</label>
+        <dx-select-box [dataSource]="proceduresList"
+                        displayExpr="DescripcionTriage"
+                        placeholder="Escriba al menos 3 letras para filtrar..."
+                        [(selectedItem)]="selectedItem"
+                        valueExpr="ID"
+                        searchMode="contains"
+                        searchExpr="DescripcionTriage"
+                        [searchTimeout]="200"
+                        [minSearchLength]="3"
+                        [showClearButton]="true"
+                        [searchEnabled]="true"
+                        (onSelectionChanged)="addCustomItem($event)">
+                        <div *dxTemplate="let data of 'item'">
+                            <div style="display: inline-block">{{ data.DescripcionTriage }}</div>
+                        </div>
+
+        </dx-select-box>
+    </div>
+</div>
