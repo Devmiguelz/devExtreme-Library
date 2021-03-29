@@ -1,31 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
-interface Task {
-  id: number;
-  parentId: number;
-  title: string;
-  start: Date;
-  end: Date;
-  progress: number;
-}
-
-interface Dependency {
-  id: number;
-  predecessorId: number;
-  successorId: number;
-  type: number;
-}
-
-interface Resource {
-  id: number;
-  text: string;
-}
-
-interface ResourceAssignment {
-  id: number;
-  taskId: number;
-  resourceId: number;
-}
+import { AnesthesiaSheetService, Task } from '../../services/anesthesia-sheet.service';
 
 @Component({
   selector: 'app-anesthesia-sheet',
@@ -34,11 +8,14 @@ interface ResourceAssignment {
 })
 export class AnesthesiaSheetComponent implements OnInit {
 
+  tasks: Task[];
+  currentTime: Date;
   
-
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(public _anesthesiaSheetService: AnesthesiaSheetService) {
+    this.tasks = _anesthesiaSheetService.getTasks();
+    console.log(this.tasks);    
   }
+
+  ngOnInit(): void { }
 
 }

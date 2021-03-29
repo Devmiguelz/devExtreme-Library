@@ -1,0 +1,4 @@
+::ng-deep .dx-datagrid-content .dx-datagrid-table .dx-row > td, 
+          .dx-datagrid-content .dx-datagrid-table .dx-row > tr > td {
+    vertical-align: middle !important;
+}

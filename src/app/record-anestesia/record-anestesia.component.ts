@@ -10,7 +10,7 @@ export class RecordAnestesiaComponent implements OnInit {
   tabPanels: any[] =
     [
       { "ID": 1, "PanelName": "HOJA DE ANESTESIA" },
-      { "ID": 2, "PanelName": "CANASTA DE ANESTESIA" }
+      /* { "ID": 2, "PanelName": "CANASTA DE ANESTESIA" } */
     ];
 
   constructor() { }

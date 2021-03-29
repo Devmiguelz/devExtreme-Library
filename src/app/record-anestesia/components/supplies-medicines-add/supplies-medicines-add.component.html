@@ -8,6 +8,8 @@
     <div class="col-md-12">
         <dx-data-grid id="gridInsumos" [dataSource]="insumoList" [showBorders]="true" [showRowLines]="true">
 
+            <dxo-editing mode="cell" [allowAdding]="false" [allowDeleting]="false" [allowUpdating]="true" [allowDeleting]="true" [useIcons]="true">
+            </dxo-editing>
             <dxi-column caption="Nombre" cellTemplate="nombreData"></dxi-column>
             <dxi-column caption="Cantidad" cellTemplate="cantidadData" [width]="100"></dxi-column>
             <dxi-column caption="Unidad Medida" cellTemplate="unidadData" [width]="150"></dxi-column>

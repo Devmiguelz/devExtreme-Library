@@ -15,14 +15,14 @@ import { SuppliesMedicinesListComponent } from './components/supplies-medicines-
   ],
   imports: [
     CommonModule,
+    DxGanttModule,
     DxTabPanelModule,
     DxRadioGroupModule,
     DxDataGridModule,
     DxTextBoxModule,
     DxSelectBoxModule,
     DxNumberBoxModule,
-    DxCheckBoxModule,
-    DxGanttModule,
+    DxCheckBoxModule
   ]
 })
 export class RecordAnestesiaModule { }
