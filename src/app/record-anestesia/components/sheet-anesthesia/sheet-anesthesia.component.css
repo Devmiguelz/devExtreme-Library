@@ -1,0 +1,22 @@
+::ng-deep .tableTimeLine thead tr .thHours {
+    padding: 3px 5px !important;
+    text-align: center !important;
+    vertical-align: middle !important;
+}
+::ng-deep .dx-accordion-item-title { 
+    padding: 7px 4px !important;
+    font-size: 13px !important;
+}
+
+.tdTimeLime {
+    padding: 0px !important;
+    vertical-align: middle;
+    border-left: none;
+    border-right: none;
+}
+
+.timeLime {
+    position: inherit;
+    width: 100%;
+    height: 10px;
+}

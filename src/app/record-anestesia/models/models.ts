@@ -1,3 +1,12 @@
+export interface ItemTimeline {
+    startDate: Date;
+    endDate: Date;
+    text: string;
+    popupVisible: boolean;
+    collapsible: boolean;
+    color?: string;
+}
+
 export interface DataRadio {
     label: string;
     add: boolean;

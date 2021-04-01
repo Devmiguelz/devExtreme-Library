@@ -1,0 +1,118 @@
+<table class="table tableTimeLine table-bordered">
+    <thead>
+        <tr>
+            <td></td>
+            <td class="thHours" *ngFor="let time of hoursTimeLineMain" [attr.colspan]="time.minutes" >{{ time.text }}</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="p-0">
+                <dx-button
+                    class="btn-block"
+                    stylingMode="contained"
+                    [text]="itemTimeLine[0].text"
+                    type="normal"
+                    (onClick)="ClickItemTimeLine(itemTimeLine[0])">
+                </dx-button>
+                <dx-popup 
+                    [width]="300" 
+                    [height]="250" 
+                    [showTitle]="true" 
+                    [title]="itemTimeLine[0].text" 
+                    [dragEnabled]="false"
+                    [closeOnOutsideClick]="true" 
+                    [(visible)]="itemTimeLine[0].popupVisible">
+                    <div *dxTemplate="let data of 'content'">
+                        <p>
+                            Fecha Inicio
+                            <dx-date-box
+                                [value]="DateNow"
+                                type="date">
+                            </dx-date-box>
+                        </p>
+                        <p>
+                            Hora Inicio:
+                            <dx-date-box
+                                [value]="TimeNow"
+                                type="time"
+                                [showClearButton]="true"
+                                displayFormat="HH:mm">
+                        </dx-date-box>
+                        </p>
+                    </div>
+                </dx-popup>
+            </td>
+            <td *ngFor="let time of hoursTimeLineSecond" [ngClass]="{'tdTimeLime': compareDate(time, itemTimeLine[0])}">
+                <div
+                    class="timeLime" 
+                    *ngIf="compareDate(time, itemTimeLine[0])" 
+                    [style.background-color]="itemTimeLine[0].color" >
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="p-0">
+                <dx-button
+                    class="btn-block"
+                    stylingMode="contained"
+                    [text]="itemTimeLine[1].text"
+                    type="normal"
+                    (onClick)="ClickItemTimeLine(itemTimeLine[1])">
+                </dx-button>
+                <dx-popup 
+                    [width]="300" 
+                    [height]="250" 
+                    [showTitle]="true" 
+                    [title]="itemTimeLine[1].text" 
+                    [dragEnabled]="false"
+                    [closeOnOutsideClick]="true" 
+                    [(visible)]="itemTimeLine[1].popupVisible">
+                    <div *dxTemplate="let data of 'content'">
+                        <p>
+                            Fecha Inicio
+                            <dx-date-box
+                                [value]="DateNow"
+                                type="date">
+                            </dx-date-box>
+                        </p>
+                        <p>
+                            Hora Inicio:
+                            <dx-date-box
+                                [value]="TimeNow"
+                                type="time"
+                                [showClearButton]="true"
+                                displayFormat="HH:mm">
+                        </dx-date-box>
+                        </p>
+                    </div>
+                </dx-popup>
+            </td>
+            <td *ngFor="let time of hoursTimeLineSecond" [ngClass]="{'tdTimeLime': compareDate(time, itemTimeLine[1])}">
+                <div 
+                    class="timeLime" 
+                    *ngIf="compareDate(time, itemTimeLine[1])" 
+                    [style.background-color]="itemTimeLine[1].color" >
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="p-0">
+                <dx-accordion
+                    class="text-center"
+                    [collapsible]="itemTimeLine[2].collapsible"
+                    [animationDuration]="300"
+                    [selectedIndex]="-1">
+                    <dxi-item [title]="itemTimeLine[2].text"></dxi-item>
+                </dx-accordion>
+            </td>
+            <td *ngFor="let time of hoursTimeLineSecond" [ngClass]="{'tdTimeLime': compareDate(time, itemTimeLine[2])}">
+                <div 
+                    class="timeLime" 
+                    *ngIf="compareDate(time, itemTimeLine[2])" 
+                    [style.background-color]="itemTimeLine[2].color" >
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>

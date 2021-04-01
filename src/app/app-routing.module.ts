@@ -19,8 +19,8 @@ const routes: Routes = [
     component: TabsComponent
   },
   {
-    path: 'record-anestesia',
-    component: RecordAnestesiaComponent
+    path: `record-anestesia`, 
+    loadChildren: () => import('./record-anestesia/record-anestesia.module').then(m => m.RecordAnestesiaModule)
   },
   {
     path: '**',
